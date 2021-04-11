@@ -1,17 +1,17 @@
-var translateBtn = document.querySelector("#translate-btn");
+const translateBtn = document.querySelector("#translate-btn");
 
-var input = document.querySelector("#input");
+const input = document.querySelector("#input");
 
-var divOutput = document.querySelector("#output");
+const divOutput = document.querySelector("#output");
 
-var url = "https://api.funtranslations.com/translate/ubbi-dubbi.json";
+const url = "https://api.funtranslations.com/translate/morse.json";
 
-function constructURL(inputText) {
+const constructURL = (inputText) => {
     return `${url}?text=${inputText}`;
-}
+};
 
-function translater() {
-    var text = input.value;
+const translator = () => {
+    const text = input.value;
 
     fetch(constructURL(text))
         .then((response) => response.json())
@@ -23,6 +23,6 @@ function translater() {
             console.log(error);
             alert("Please try again after some time");
         });
-}
+};
 
-translateBtn.addEventListener("click", translater);
+translateBtn.addEventListener("click", translator);
